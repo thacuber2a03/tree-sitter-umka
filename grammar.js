@@ -71,7 +71,7 @@ module.exports = grammar({
     ),
 
     type: $ => choice(
-      $.qual_ident,
+      $.qualIdent,
       $.ptr_type,
       $.array_type,
       $.dynArrayType,
@@ -122,10 +122,6 @@ module.exports = grammar({
     signature: $ => seq(
       $.parameter_list,
       optional(seq(':', $.type)),
-    ),
-    qual_ident: $ => choice(
-      field('ident', $.identifier),
-      seq(field('module', $.identifier), '::', field('ident', $.identifier))
     ),
 
 		declAssignmentStmt: $ => seq(
