@@ -92,7 +92,7 @@ module.exports = grammar({
     structType: $ => seq('struct', '{', repSeq($.typedIdentList, implSemi), '}'),
 
     mapType: $ => seq('map', '[', $.type, ']', $.type),
-    interfaceType: $ => seq('interface', '{', repeat($.interface_item), '}'),
+    interfaceType: $ => seq('interface', '{', repeat($.interfaceItem), '}'),
 
     interfaceItem: $ => choice(
       field('type', $.ident),

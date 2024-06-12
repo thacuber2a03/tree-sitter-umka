@@ -1,5 +1,36 @@
 [
   {
+    "type": "arrayType",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "decNumber",
+          "named": true
+        },
+        {
+          "type": "hexNumber",
+          "named": true
+        },
+        {
+          "type": "realNumber",
+          "named": true
+        },
+        {
+          "type": "stringLiteral",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "block",
     "named": true,
     "fields": {},
@@ -29,6 +60,10 @@
         },
         {
           "type": "shortVarDecl",
+          "named": true
+        },
+        {
+          "type": "typeDecl",
           "named": true
         }
       ]
@@ -100,7 +135,73 @@
     }
   },
   {
+    "type": "closureType",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "signature",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dynArrayType",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enumItem",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "enumType",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "enumItem",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "escSeq",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "exportMark",
     "named": true,
     "fields": {}
   },
@@ -203,6 +304,10 @@
           {
             "type": "*",
             "named": false
+          },
+          {
+            "type": "exportMark",
+            "named": true
           }
         ]
       }
@@ -213,6 +318,72 @@
       "types": [
         {
           "type": "ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "interfaceItem",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "signature",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "interfaceType",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "interfaceItem",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapType",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "type",
           "named": true
         }
       ]
@@ -315,6 +486,25 @@
         },
         {
           "type": "shortVarDecl",
+          "named": true
+        },
+        {
+          "type": "typeDecl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ptrType",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "type",
           "named": true
         }
       ]
@@ -431,6 +621,21 @@
     }
   },
   {
+    "type": "structType",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "typedIdentList",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "type",
     "named": true,
     "fields": {},
@@ -439,7 +644,84 @@
       "required": true,
       "types": [
         {
+          "type": "arrayType",
+          "named": true
+        },
+        {
+          "type": "closureType",
+          "named": true
+        },
+        {
+          "type": "dynArrayType",
+          "named": true
+        },
+        {
+          "type": "enumType",
+          "named": true
+        },
+        {
+          "type": "interfaceType",
+          "named": true
+        },
+        {
+          "type": "mapType",
+          "named": true
+        },
+        {
+          "type": "ptrType",
+          "named": true
+        },
+        {
           "type": "qualIdent",
+          "named": true
+        },
+        {
+          "type": "structType",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typeDecl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "typeDeclItem",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typeDeclItem",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "exportMark",
+          "named": true
+        },
+        {
+          "type": "type",
           "named": true
         }
       ]
@@ -551,12 +833,28 @@
     "named": false
   },
   {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "^",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
   },
   {
     "type": "decNumber",
     "named": true
+  },
+  {
+    "type": "enum",
+    "named": false
   },
   {
     "type": "fn",
@@ -571,7 +869,27 @@
     "named": true
   },
   {
+    "type": "interface",
+    "named": false
+  },
+  {
+    "type": "map",
+    "named": false
+  },
+  {
+    "type": "struct",
+    "named": false
+  },
+  {
+    "type": "type",
+    "named": false
+  },
+  {
     "type": "var",
+    "named": false
+  },
+  {
+    "type": "weak",
     "named": false
   },
   {
