@@ -28,7 +28,22 @@ module.exports = grammar({
 
   rules: {
     program: $ => seq(
+      optional($.import),
       repeat($.decl)
+    ),
+
+    import: $ => seq(
+      'import',
+      '(',
+      repeat($.import_item),
+      ')',
+    ),
+
+    import_item: $ => seq(
+      choice(
+        seq(field('name', $.ident), '=', $.stringLiteral),
+        $.stringImportLiteral
+      ),
     ),
 
     decl: $ => choice(
@@ -126,23 +141,17 @@ module.exports = grammar({
     rcvSignature: $ => seq("(",
       field('name', $.ident), ":",
       field('type', $.type),
-    ")"),
+      ")"),
 
     exprList: $ => seq($.expr, repSeq(",", $.expr)),
 
-    signature: $ => seq("(",
-      optSeq(
+    parameterList: $ => seq("(",
+      repSeq(",",
         field('params', $.typedIdentList),
         optSeq('=', field('defaultValue', $.expr)),
       ),
-      repSeq(","
-        field('params', $.typedIdentList),
-        optSeq('=', field('defaultValue', $.expr)),
-      ),
-    ")", ":", field('returnTypes', choice(
-      $.type,
-      "(", $.type, repSeq(",", $.type), ")"
-    ))),
+      ")"
+    ),
 
     block: $ => seq("{", repSeq($.stmt, optional(';')), "}"),
 
@@ -152,21 +161,53 @@ module.exports = grammar({
       $.decl,
     ),
 
-    expr: $ => choice($.stringLiteral, $.number),
+    expr: $ => choice($.stringLiteral, $.number, $.primary),
 
-    designator: $ => seq(choice($.primary)),
+    designator: $ => $.primary,
 
     primary: $ => choice($.qualIdent, $.builtinCall),
 
     qualIdent: $ => seq(
       optSeq(field('module', $.ident), '::'),
-      field('identifier', $.ident)
+      field('name', $.ident)
     ),
 
-    builtinCall: $ => seq(
-      field('name', $.qualIdent),
-      field('arguments', seq("(",
-        optSeq($.expr, repSeq(",", $.expr)), ")"
+    builtinCall: $ => choice(
+      $.builtinCallFmt,
+      $.builtinCallMake,
+      $.builtinCall1Type,
+      $.builtinCallBasic,
+    ),
+
+    builtinCallBasic: $ => seq(
+      choice('append', 'atan', 'atan2', 'cap', 'ceil', 'copy', 'cos',
+        'delete', 'exit', 'exp', 'fabs', 'fiberalive', 'fibercall',
+        'fiberspawn', 'floor', 'insert', 'keys', 'len', 'log', 'memusage', 'round',
+        'selfhasptr', 'selftypeeq', 'sin', 'sizeofself', 'slice', 'sqrt', 'trunc',
+        'valid', 'validkey'),
+      field('arguments', seq(
+        "(", $.expr, repSeq(",", $.expr), ")",
+      ))
+    ),
+
+    builtinCallFmt: $ => seq(
+      choice('printf', 'sprintf', 'fprintf', 'scanf', 'sscanf', 'fscanf'),
+      field('arguments', seq(
+        "(", $.stringFmtLiteral, optSeq(',', $.expr, repSeq(",", $.expr)), ")",
+      ))
+    ),
+
+    builtinCallMake: $ => seq(
+      'make',
+      field('arguments', seq(
+        "(", $.type, ',', $.expr, ")",
+      ))
+    ),
+
+    builtinCall1Type: $ => seq(
+      choice('new', 'sizeof', 'typeptr'),
+      field('arguments', seq(
+        "(", $.type, ")",
       ))
     ),
 
@@ -175,7 +216,7 @@ module.exports = grammar({
     number: $ => choice($.realNumber, $.hexNumber, $.decNumber),
 
     decNumber: $ => /[0-9]+/,
-    hexNumber: $ => /[0-9a-fA-F]+/,
+    hexNumber: $ => /0x[0-9a-fA-F]+/,
 
     realNumber: $ => choice(
       /[0-9]+\.[0-9]+/,
@@ -185,8 +226,12 @@ module.exports = grammar({
 
     charLiteral: $ => seq("'", repeat(choice($.escSeq, /./)), '"'),
     stringLiteral: $ => seq('"', repeat(choice($.escSeq, /./)), '"'),
+    stringFmtLiteral: $ => seq('"', repeat(choice($.escSeq, $.fmtSeq, /./)), '"'),
+    stringImportLiteral: $ => seq('"', repeat(choice($.escSeq, $.modSeq, /./)), '"'),
 
+    fmtSeq: $ => /\%[-+\s#0]?([0-9]+|\*)?(\.[0-9]*)?(hh|h|l|ll)?[diuxXfFeEgGscv%]/,
     escSeq: $ => choice(/\\[0abefnrtv]/, /\\x[0-9a-fA-F][0-9a-fA-F]*/),
+    modSeq: $ => seq(field('name', $.ident), '.um'),
 
     comment: $ => token(choice(
       seq('//', /.*/),

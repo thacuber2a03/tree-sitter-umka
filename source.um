@@ -1,5 +1,15 @@
-fn main() {
-	var a: thing = 1
+import (
+    "std.um"
+    th_font = "font.um"
+)
+
+type X = struct {
+    field: map[str]int
+}
+
+fn (x: X) make() {}
+
+fn make() {
 	var b: int = 1
-	print("Hello world!")
+	printf("Hello \n %d world!")
 }

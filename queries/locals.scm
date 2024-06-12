@@ -1,6 +1,6 @@
 (block) @local.scope
 
-(signature params: (typedIdentList
+(parameterList params: (typedIdentList
 	(identList (ident) @local.definition)))
 
 (methodDecl
