@@ -16,6 +16,10 @@
           "named": true
         },
         {
+          "type": "primary",
+          "named": true
+        },
+        {
           "type": "realNumber",
           "named": true
         },
@@ -72,6 +76,57 @@
   {
     "type": "builtinCall",
     "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "builtinCall1Type",
+          "named": true
+        },
+        {
+          "type": "builtinCallBasic",
+          "named": true
+        },
+        {
+          "type": "builtinCallFmt",
+          "named": true
+        },
+        {
+          "type": "builtinCallMake",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "builtinCall1Type",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "builtinCallBasic",
+    "named": true,
     "fields": {
       "arguments": {
         "multiple": true,
@@ -98,6 +153,10 @@
             "named": true
           },
           {
+            "type": "primary",
+            "named": true
+          },
+          {
             "type": "realNumber",
             "named": true
           },
@@ -106,13 +165,99 @@
             "named": true
           }
         ]
-      },
-      "name": {
-        "multiple": false,
+      }
+    }
+  },
+  {
+    "type": "builtinCallFmt",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "qualIdent",
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "hexNumber",
+            "named": true
+          },
+          {
+            "type": "primary",
+            "named": true
+          },
+          {
+            "type": "realNumber",
+            "named": true
+          },
+          {
+            "type": "stringFmtLiteral",
+            "named": true
+          },
+          {
+            "type": "stringLiteral",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "builtinCallMake",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "hexNumber",
+            "named": true
+          },
+          {
+            "type": "primary",
+            "named": true
+          },
+          {
+            "type": "realNumber",
+            "named": true
+          },
+          {
+            "type": "stringLiteral",
+            "named": true
+          },
+          {
+            "type": "type",
             "named": true
           }
         ]
@@ -222,6 +367,10 @@
           "named": true
         },
         {
+          "type": "primary",
+          "named": true
+        },
+        {
           "type": "realNumber",
           "named": true
         },
@@ -318,6 +467,51 @@
       "types": [
         {
           "type": "ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "import",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "importItem",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "importItem",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "stringImportLiteral",
+          "named": true
+        },
+        {
+          "type": "stringLiteral",
           "named": true
         }
       ]
@@ -446,6 +640,64 @@
     }
   },
   {
+    "type": "modSeq",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "parameterList",
+    "named": true,
+    "fields": {
+      "defaultValue": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "hexNumber",
+            "named": true
+          },
+          {
+            "type": "primary",
+            "named": true
+          },
+          {
+            "type": "realNumber",
+            "named": true
+          },
+          {
+            "type": "stringLiteral",
+            "named": true
+          }
+        ]
+      },
+      "params": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "typedIdentList",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "primary",
     "named": true,
     "fields": {},
@@ -478,6 +730,10 @@
         },
         {
           "type": "fullVarDecl",
+          "named": true
+        },
+        {
+          "type": "import",
           "named": true
         },
         {
@@ -514,9 +770,9 @@
     "type": "qualIdent",
     "named": true,
     "fields": {
-      "identifier": {
+      "module": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "ident",
@@ -524,9 +780,9 @@
           }
         ]
       },
-      "module": {
+      "name": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "ident",
@@ -570,39 +826,58 @@
   {
     "type": "signature",
     "named": true,
-    "fields": {
-      "defaultValue": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "decNumber",
-            "named": true
-          },
-          {
-            "type": "hexNumber",
-            "named": true
-          },
-          {
-            "type": "realNumber",
-            "named": true
-          },
-          {
-            "type": "stringLiteral",
-            "named": true
-          }
-        ]
-      },
-      "params": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "typedIdentList",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "parameterList",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "stringFmtLiteral",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "escSeq",
+          "named": true
+        },
+        {
+          "type": "fmtSeq",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "stringImportLiteral",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "escSeq",
+          "named": true
+        },
+        {
+          "type": "modSeq",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -773,6 +1048,10 @@
             "named": true
           },
           {
+            "type": "primary",
+            "named": true
+          },
+          {
             "type": "realNumber",
             "named": true
           },
@@ -813,6 +1092,10 @@
     "named": false
   },
   {
+    "type": ".um",
+    "named": false
+  },
+  {
     "type": ":",
     "named": false
   },
@@ -845,19 +1128,91 @@
     "named": false
   },
   {
+    "type": "append",
+    "named": false
+  },
+  {
+    "type": "atan",
+    "named": false
+  },
+  {
+    "type": "atan2",
+    "named": false
+  },
+  {
+    "type": "cap",
+    "named": false
+  },
+  {
+    "type": "ceil",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
+  },
+  {
+    "type": "copy",
+    "named": false
+  },
+  {
+    "type": "cos",
+    "named": false
   },
   {
     "type": "decNumber",
     "named": true
   },
   {
+    "type": "delete",
+    "named": false
+  },
+  {
     "type": "enum",
     "named": false
   },
   {
+    "type": "exit",
+    "named": false
+  },
+  {
+    "type": "exp",
+    "named": false
+  },
+  {
+    "type": "fabs",
+    "named": false
+  },
+  {
+    "type": "fiberalive",
+    "named": false
+  },
+  {
+    "type": "fibercall",
+    "named": false
+  },
+  {
+    "type": "fiberspawn",
+    "named": false
+  },
+  {
+    "type": "floor",
+    "named": false
+  },
+  {
+    "type": "fmtSeq",
+    "named": true
+  },
+  {
     "type": "fn",
+    "named": false
+  },
+  {
+    "type": "fprintf",
+    "named": false
+  },
+  {
+    "type": "fscanf",
     "named": false
   },
   {
@@ -869,7 +1224,31 @@
     "named": true
   },
   {
+    "type": "import",
+    "named": false
+  },
+  {
+    "type": "insert",
+    "named": false
+  },
+  {
     "type": "interface",
+    "named": false
+  },
+  {
+    "type": "keys",
+    "named": false
+  },
+  {
+    "type": "len",
+    "named": false
+  },
+  {
+    "type": "log",
+    "named": false
+  },
+  {
+    "type": "make",
     "named": false
   },
   {
@@ -877,11 +1256,83 @@
     "named": false
   },
   {
+    "type": "memusage",
+    "named": false
+  },
+  {
+    "type": "new",
+    "named": false
+  },
+  {
+    "type": "printf",
+    "named": false
+  },
+  {
+    "type": "round",
+    "named": false
+  },
+  {
+    "type": "scanf",
+    "named": false
+  },
+  {
+    "type": "selfhasptr",
+    "named": false
+  },
+  {
+    "type": "selftypeeq",
+    "named": false
+  },
+  {
+    "type": "sin",
+    "named": false
+  },
+  {
+    "type": "sizeof",
+    "named": false
+  },
+  {
+    "type": "sizeofself",
+    "named": false
+  },
+  {
+    "type": "slice",
+    "named": false
+  },
+  {
+    "type": "sprintf",
+    "named": false
+  },
+  {
+    "type": "sqrt",
+    "named": false
+  },
+  {
+    "type": "sscanf",
+    "named": false
+  },
+  {
     "type": "struct",
     "named": false
   },
   {
+    "type": "trunc",
+    "named": false
+  },
+  {
     "type": "type",
+    "named": false
+  },
+  {
+    "type": "typeptr",
+    "named": false
+  },
+  {
+    "type": "valid",
+    "named": false
+  },
+  {
+    "type": "validkey",
     "named": false
   },
   {
