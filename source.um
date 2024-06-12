@@ -1,0 +1,5 @@
+fn main() {
+	var a: thing = 1
+	var b: int = 1
+	print("Hello world!")
+}
