@@ -7,7 +7,7 @@
  "memusage" "new" "printf" "round" "scanf" "selfhasptr"
  "selftypeeq" "sin" "sizeof" "sizeofself" "slice" "sprintf"
  "sqrt" "sscanf" "trunc" "typeptr" "valid" "validkey"] @support.function
-["=" ":=" "*" ":" ","] @operator
+["=" ":=" "*" ":" "," "::"] @operator
 
 (methodDecl
 	receiver: (rcvSignature name: (ident) @variable.parameter)
@@ -28,9 +28,10 @@
 (escSeq) @string.special
 (fmtSeq) @string.special
 (comment) @comment
-(import_item name: (ident) @module)
+(importItem name: (ident) @module)
 (typeDeclItem name: (ident) @type)
-(qualIdent module: (ident) @module name: (ident) @type)
+(type (qualIdent name: (ident) @type))
+(type (qualIdent module: (ident) @module name: (ident) @type))
 (modSeq name: (ident) @module)
 ((type) @type.builtin
 	(#match? @type.builtin "^(str|void|int8|int16|int32|int|uint8|uint16|uint32|uint|bool|char|real32|real|fiber|any)$"))

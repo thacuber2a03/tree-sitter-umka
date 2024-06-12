@@ -481,14 +481,14 @@
       "required": false,
       "types": [
         {
-          "type": "import_item",
+          "type": "importItem",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "import_item",
+    "type": "importItem",
     "named": true,
     "fields": {
       "name": {

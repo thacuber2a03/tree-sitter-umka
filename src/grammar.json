@@ -41,7 +41,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "import_item"
+            "name": "importItem"
           }
         },
         {
@@ -50,7 +50,7 @@
         }
       ]
     },
-    "import_item": {
+    "importItem": {
       "type": "SEQ",
       "members": [
         {
@@ -879,49 +879,88 @@
           "value": "("
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "FIELD",
-                "name": "params",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "typedIdentList"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SEQ",
+                          "members": [
+                            {
+                              "type": "STRING",
+                              "value": "="
+                            },
+                            {
+                              "type": "FIELD",
+                              "name": "defaultValue",
+                              "content": {
+                                "type": "SYMBOL",
+                                "name": "expr"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
                 }
-              },
-              {
-                "type": "CHOICE",
+              ]
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
                 "members": [
                   {
-                    "type": "SEQ",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": "="
-                      },
-                      {
-                        "type": "FIELD",
-                        "name": "defaultValue",
-                        "content": {
-                          "type": "SYMBOL",
-                          "name": "expr"
-                        }
-                      }
-                    ]
+                    "type": "FIELD",
+                    "name": "params",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "typedIdentList"
+                    }
                   },
                   {
-                    "type": "BLANK"
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SEQ",
+                        "members": [
+                          {
+                            "type": "STRING",
+                            "value": "="
+                          },
+                          {
+                            "type": "FIELD",
+                            "name": "defaultValue",
+                            "content": {
+                              "type": "SYMBOL",
+                              "name": "expr"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
                   }
                 ]
               }
-            ]
-          }
+            }
+          ]
         },
         {
           "type": "STRING",

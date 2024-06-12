@@ -1,6 +1,7 @@
 const implSemi = /[;\n]/
 const optSeq = (...rules) => optional(seq(...rules))
 const repSeq = (...rules) => repeat(seq(...rules))
+const delimSeq = (delim, ...rules) => seq(optSeq(...rules), repSeq(delim, ...rules))
 
 module.exports = grammar({
   name: "umka",
@@ -35,11 +36,11 @@ module.exports = grammar({
     import: $ => seq(
       'import',
       '(',
-      repeat($.import_item),
+      repeat($.importItem),
       ')',
     ),
 
-    import_item: $ => seq(
+    importItem: $ => seq(
       choice(
         seq(field('name', $.ident), '=', $.stringLiteral),
         $.stringImportLiteral
@@ -145,8 +146,9 @@ module.exports = grammar({
 
     exprList: $ => seq($.expr, repSeq(",", $.expr)),
 
-    parameterList: $ => seq("(",
-      repSeq(",",
+    parameterList: $ => seq(
+      "(",
+      delimSeq(
         field('params', $.typedIdentList),
         optSeq('=', field('defaultValue', $.expr)),
       ),
