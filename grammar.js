@@ -130,10 +130,19 @@ module.exports = grammar({
 
     exprList: $ => seq($.expr, repSeq(",", $.expr)),
 
-    signature: $ => seq("(", optSeq(
-      field('params', $.typedIdentList),
-      optSeq('=', field('defaultValue', $.expr)),
-    ), ")"),
+    signature: $ => seq("(",
+      optSeq(
+        field('params', $.typedIdentList),
+        optSeq('=', field('defaultValue', $.expr)),
+      ),
+      repSeq(","
+        field('params', $.typedIdentList),
+        optSeq('=', field('defaultValue', $.expr)),
+      ),
+    ")", ":", field('returnTypes', choice(
+      $.type,
+      "(", $.type, repSeq(",", $.type), ")"
+    ))),
 
     block: $ => seq("{", repSeq($.stmt, optional(';')), "}"),
 
