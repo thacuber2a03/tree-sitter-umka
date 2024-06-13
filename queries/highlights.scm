@@ -1,6 +1,6 @@
 
 
-["enum" "fn" "map" "import" "interface" "struct" "type" "var"] @keyword
+["const" "enum" "fn" "map" "import" "interface" "struct" "type" "var"] @keyword
 ["append" "atan" "atan2" "cap" "ceil" "copy" "cos" "delete"
  "exit" "exp" "fabs" "fiberalive" "fibercall" "fiberspawn"
  "floor" "fprintf" "fscanf" "insert" "keys" "len" "log" "make"
@@ -21,6 +21,7 @@
 (structType (typedIdentList
     (identList (ident) @property)))
 
+(constDeclItem name: (ident) @constant)
 (enumItem) @constant
 (stringLiteral)  @string
 (stringFmtLiteral)  @string

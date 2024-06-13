@@ -1,5 +1,44 @@
 [
   {
+    "type": "arrayLiteral",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "arrayLiteral",
+          "named": true
+        },
+        {
+          "type": "decNumber",
+          "named": true
+        },
+        {
+          "type": "hexNumber",
+          "named": true
+        },
+        {
+          "type": "mapLiteral",
+          "named": true
+        },
+        {
+          "type": "primary",
+          "named": true
+        },
+        {
+          "type": "realNumber",
+          "named": true
+        },
+        {
+          "type": "stringLiteral",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "arrayType",
     "named": true,
     "fields": {},
@@ -8,11 +47,19 @@
       "required": true,
       "types": [
         {
+          "type": "arrayLiteral",
+          "named": true
+        },
+        {
           "type": "decNumber",
           "named": true
         },
         {
           "type": "hexNumber",
+          "named": true
+        },
+        {
+          "type": "mapLiteral",
           "named": true
         },
         {
@@ -48,6 +95,10 @@
         },
         {
           "type": "callStmt",
+          "named": true
+        },
+        {
+          "type": "constDecl",
           "named": true
         },
         {
@@ -145,11 +196,19 @@
             "named": false
           },
           {
+            "type": "arrayLiteral",
+            "named": true
+          },
+          {
             "type": "decNumber",
             "named": true
           },
           {
             "type": "hexNumber",
+            "named": true
+          },
+          {
+            "type": "mapLiteral",
             "named": true
           },
           {
@@ -189,11 +248,19 @@
             "named": false
           },
           {
+            "type": "arrayLiteral",
+            "named": true
+          },
+          {
             "type": "decNumber",
             "named": true
           },
           {
             "type": "hexNumber",
+            "named": true
+          },
+          {
+            "type": "mapLiteral",
             "named": true
           },
           {
@@ -237,11 +304,19 @@
             "named": false
           },
           {
+            "type": "arrayLiteral",
+            "named": true
+          },
+          {
             "type": "decNumber",
             "named": true
           },
           {
             "type": "hexNumber",
+            "named": true
+          },
+          {
+            "type": "mapLiteral",
             "named": true
           },
           {
@@ -289,6 +364,81 @@
       "types": [
         {
           "type": "signature",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constDecl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "constDeclItem",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constDeclItem",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "arrayLiteral",
+            "named": true
+          },
+          {
+            "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "hexNumber",
+            "named": true
+          },
+          {
+            "type": "mapLiteral",
+            "named": true
+          },
+          {
+            "type": "primary",
+            "named": true
+          },
+          {
+            "type": "realNumber",
+            "named": true
+          },
+          {
+            "type": "stringLiteral",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "exportMark",
           "named": true
         }
       ]
@@ -359,11 +509,19 @@
       "required": true,
       "types": [
         {
+          "type": "arrayLiteral",
+          "named": true
+        },
+        {
           "type": "decNumber",
           "named": true
         },
         {
           "type": "hexNumber",
+          "named": true
+        },
+        {
+          "type": "mapLiteral",
           "named": true
         },
         {
@@ -569,6 +727,45 @@
     }
   },
   {
+    "type": "mapLiteral",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "arrayLiteral",
+          "named": true
+        },
+        {
+          "type": "decNumber",
+          "named": true
+        },
+        {
+          "type": "hexNumber",
+          "named": true
+        },
+        {
+          "type": "mapLiteral",
+          "named": true
+        },
+        {
+          "type": "primary",
+          "named": true
+        },
+        {
+          "type": "realNumber",
+          "named": true
+        },
+        {
+          "type": "stringLiteral",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "mapType",
     "named": true,
     "fields": {},
@@ -664,11 +861,19 @@
         "required": false,
         "types": [
           {
+            "type": "arrayLiteral",
+            "named": true
+          },
+          {
             "type": "decNumber",
             "named": true
           },
           {
             "type": "hexNumber",
+            "named": true
+          },
+          {
+            "type": "mapLiteral",
             "named": true
           },
           {
@@ -724,6 +929,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "constDecl",
+          "named": true
+        },
         {
           "type": "fnDecl",
           "named": true
@@ -1037,14 +1246,22 @@
       },
       "value": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
+          {
+            "type": "arrayLiteral",
+            "named": true
+          },
           {
             "type": "decNumber",
             "named": true
           },
           {
             "type": "hexNumber",
+            "named": true
+          },
+          {
+            "type": "mapLiteral",
             "named": true
           },
           {
@@ -1108,10 +1325,6 @@
     "named": false
   },
   {
-    "type": ";",
-    "named": false
-  },
-  {
     "type": "=",
     "named": false
   },
@@ -1150,6 +1363,10 @@
   {
     "type": "comment",
     "named": true
+  },
+  {
+    "type": "const",
+    "named": false
   },
   {
     "type": "copy",

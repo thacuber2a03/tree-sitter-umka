@@ -6,8 +6,8 @@
 - [x] `decl`
 - [x] `typeDecl`
 - [x] `typeDeclItem`
-- [ ] `constDecl`
-- [ ] `constDeclItem`
+- [x] `constDecl`
+- [x] `constDeclItem`
 - [x] `varDecl`
 - [x] `fullVarDecl`
 - [x] `varDeclItem`
@@ -77,9 +77,9 @@
 - [ ] `callSelector`
 - [ ] `actualParams`
 - [ ] `compositeLiteral`
-- [ ] `arrayLiteral`
-- [ ] `dynArrayLiteral`
-- [ ] `mapLiteral`
+- [x] `arrayLiteral`
+- [x] `dynArrayLiteral`
+- [x] `mapLiteral`
 - [ ] `structLiteral`
 - [ ] `closureLiteral`
 - [ ] `typeCast`
