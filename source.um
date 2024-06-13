@@ -1,15 +1,41 @@
 import (
+
+
     "std.um"
+
     th_font = "font.um"
 )
 
 type X = struct {
+
     field: map[str]int
+
 }
 
-fn (x: X) make() {}
+const x = 32
+
+const (
+
+    y = 64
+
+    z* = 128
+
+)
+
+fn (x: X) make() {
+
+}
 
 fn make() {
-	var b: int = 1
-	printf("Hello \n %d world!")
+
+    var b: int = 1
+    var c: []int = {
+        1,
+        2,
+        3
+    }
+
+
+    printf("Hello \n %d world!")
+
 }

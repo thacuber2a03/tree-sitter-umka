@@ -1,4 +1,5 @@
-const implSemi = /[;\n]/
+const implSemi = repeat1(/[;\n]/)
+const optSemi = repeat(/[;\n]/)
 const optSeq = (...rules) => optional(seq(...rules))
 const repSeq = (...rules) => repeat(seq(...rules))
 const delimSeq = (delim, ...rules) => seq(optSeq(...rules), repSeq(delim, ...rules))
@@ -17,15 +18,12 @@ module.exports = grammar({
 
   extras: $ => [
     $.comment,
-    /\s/,
+    /[ \t]/,
   ],
 
   word: $ => $.ident,
 
-  conflicts: $ => [
-    [$.fnDecl],
-    [$.methodDecl],
-  ],
+  conflicts: $ => [],
 
   rules: {
     program: $ => seq(
@@ -33,11 +31,19 @@ module.exports = grammar({
       repeat($.decl)
     ),
 
-    import: $ => seq(
-      'import',
-      '(',
-      repeat($.importItem),
-      ')',
+    import: $ => choice(
+      seq(
+        'import',
+        $.importItem
+      ),
+      seq(
+        'import',
+        '(',
+        optSemi,
+        repeat($.importItem),
+        ')',
+        implSemi
+      )
     ),
 
     importItem: $ => seq(
@@ -45,13 +51,27 @@ module.exports = grammar({
         seq(field('name', $.ident), '=', $.stringLiteral),
         $.stringImportLiteral
       ),
+      implSemi
     ),
 
-    decl: $ => choice(
+    decl: $ => seq(choice(
       $.fnDecl,
       $.methodDecl,
       $.varDecl,
       $.typeDecl,
+      $.constDecl,
+    )),
+
+    constDecl: $ => seq('const', choice(
+      $.constDeclItem,
+      seq("(", optSemi, repSeq($.constDeclItem), ")", implSemi),
+    )),
+
+    constDeclItem: $ => seq(
+      field('name', $.ident),
+      optional($.exportMark),
+      '=', field('value', $.expr),
+      implSemi,
     ),
 
     varDecl: $ => choice(
@@ -61,12 +81,13 @@ module.exports = grammar({
 
     fullVarDecl: $ => seq("var", choice(
       $.varDeclItem,
-      seq("(", repSeq($.varDeclItem, implSemi), ")"),
+      seq("(", optSemi, repSeq($.varDeclItem), ")"),
     )),
 
     varDeclItem: $ => seq(
       field('identifiers', $.typedIdentList),
-      "=", field('value', $.expr)
+      optSeq("=", field('value', $.expr)),
+      implSemi,
     ),
 
     exportMark: $ => '*',
@@ -79,13 +100,14 @@ module.exports = grammar({
     typedIdentList: $ => seq($.identList, ":", optional(".."), $.type),
 
     typeDecl: $ => seq('type',
-      choice($.typeDeclItem, seq("(", repSeq($.typeDeclItem, implSemi), ")"))
+      choice($.typeDeclItem, seq("(", repSeq($.typeDeclItem), ")"))
     ),
 
     typeDeclItem: $ => seq(
       field('name', $.ident),
       optional($.exportMark),
       '=', $.type,
+      implSemi
     ),
 
     type: $ => choice(
@@ -105,7 +127,7 @@ module.exports = grammar({
     dynArrayType: $ => seq('[', ']', $.type),
     enumType: $ => seq('enum', '{', repeat($.enumItem), '}'),
     enumItem: $ => seq(field('name', $.ident), implSemi),
-    structType: $ => seq('struct', '{', repSeq($.typedIdentList, implSemi), '}'),
+    structType: $ => seq('struct', '{', optSemi, repSeq($.typedIdentList, implSemi), '}'),
 
     mapType: $ => seq('map', '[', $.type, ']', $.type),
     interfaceType: $ => seq('interface', '{', repeat($.interfaceItem), '}'),
@@ -129,6 +151,7 @@ module.exports = grammar({
       optional(field('exported', '*')),
       field('signature', $.signature),
       optional(field('body', $.block)),
+      implSemi
     ),
 
     methodDecl: $ => seq("fn",
@@ -137,6 +160,7 @@ module.exports = grammar({
       optional(field('exported', '*')),
       field('signature', $.signature),
       optional(field('body', $.block)),
+      implSemi
     ),
 
     rcvSignature: $ => seq("(",
@@ -155,15 +179,18 @@ module.exports = grammar({
       ")"
     ),
 
-    block: $ => seq("{", repSeq($.stmt, optional(';')), "}"),
+    block: $ => seq("{", optSemi, repSeq($.stmt), "}"),
 
     stmt: $ => choice(
-      alias($.designator, $.callStmt),
+      seq(alias($.designator, $.callStmt), implSemi),
       $.block,
       $.decl,
     ),
 
-    expr: $ => choice($.stringLiteral, $.number, $.primary),
+    expr: $ => choice($.stringLiteral, $.number, $.primary, $.mapLiteral, $.arrayLiteral),
+
+    arrayLiteral: $ => prec(1, seq("{", delimSeq(",", optSemi, $.expr), optSemi, "}")),
+    mapLiteral: $ => seq("{", delimSeq(",", $.expr, ':', optSemi, $.expr), optSemi, "}"),
 
     designator: $ => $.primary,
 
