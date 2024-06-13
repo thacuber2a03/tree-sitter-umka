@@ -110,6 +110,10 @@
           "named": true
         },
         {
+          "type": "ifStmt",
+          "named": true
+        },
+        {
           "type": "methodDecl",
           "named": true
         },
@@ -631,6 +635,76 @@
     }
   },
   {
+    "type": "ifStmt",
+    "named": true,
+    "fields": {
+      "alternative": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "arrayLiteral",
+            "named": true
+          },
+          {
+            "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "hexNumber",
+            "named": true
+          },
+          {
+            "type": "mapLiteral",
+            "named": true
+          },
+          {
+            "type": "primary",
+            "named": true
+          },
+          {
+            "type": "realNumber",
+            "named": true
+          },
+          {
+            "type": "stringLiteral",
+            "named": true
+          }
+        ]
+      },
+      "consequent": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "locals": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "shortVarDecl",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "import",
     "named": true,
     "fields": {},
@@ -1033,19 +1107,74 @@
     "fields": {}
   },
   {
+    "type": "shortVarDecl",
+    "named": true,
+    "fields": {
+      "identifiers": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identList",
+            "named": true
+          }
+        ]
+      },
+      "values": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "exprList",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "shortVarDecl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "signature",
     "named": true,
-    "fields": {},
+    "fields": {
+      "returnTypes": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "parameterList",
-          "named": true
-        },
-        {
-          "type": "type",
           "named": true
         }
       ]
@@ -1385,6 +1514,10 @@
     "named": false
   },
   {
+    "type": "else",
+    "named": false
+  },
+  {
     "type": "enum",
     "named": false
   },
@@ -1439,6 +1572,10 @@
   {
     "type": "ident",
     "named": true
+  },
+  {
+    "type": "if",
+    "named": false
   },
   {
     "type": "import",

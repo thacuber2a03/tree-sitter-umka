@@ -1,12 +1,13 @@
+["const" "enum" "fn" "map" "import" "interface" "struct" "type" "var" "weak"] @keyword
 
+["if"] @keyword.conditional
 
-["const" "enum" "fn" "map" "import" "interface" "struct" "type" "var"] @keyword
 ["append" "atan" "atan2" "cap" "ceil" "copy" "cos" "delete"
  "exit" "exp" "fabs" "fiberalive" "fibercall" "fiberspawn"
  "floor" "fprintf" "fscanf" "insert" "keys" "len" "log" "make"
  "memusage" "new" "printf" "round" "scanf" "selfhasptr"
  "selftypeeq" "sin" "sizeof" "sizeofself" "slice" "sprintf"
- "sqrt" "sscanf" "trunc" "typeptr" "valid" "validkey"] @support.function
+ "sqrt" "sscanf" "trunc" "typeptr" "valid" "validkey"] @support.function @function.builtin
 ["=" ":=" "*" ":" "," "::"] @operator
 
 (methodDecl
@@ -37,8 +38,7 @@
 ((type) @type.builtin
 	(#match? @type.builtin "^(str|void|int8|int16|int32|int|uint8|uint16|uint32|uint|bool|char|real32|real|fiber|any)$"))
 
-[
-	(decNumber)
-	(hexNumber)
-	(realNumber)
-] @number
+((ident) @constant.builtin
+	(#match? @constant.builtin "^(true|false|null)$"))
+
+[ (decNumber) (hexNumber) (realNumber) ] @number

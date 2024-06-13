@@ -1,5 +1,5 @@
 const implSemi = repeat1(/[;\n]/)
-const optSemi = repeat(/[;\n]/)
+const optImplSemi = repeat(/[;\n]/)
 const optSeq = (...rules) => optional(seq(...rules))
 const repSeq = (...rules) => repeat(seq(...rules))
 const delimSeq = (delim, ...rules) => seq(optSeq(...rules), repSeq(delim, ...rules))
@@ -13,7 +13,7 @@ module.exports = grammar({
     $.expr,
     $.number,
     $.varDecl,
-    $.declAssignmentStmt,
+    $.returnType,
   ],
 
   extras: $ => [
@@ -32,17 +32,12 @@ module.exports = grammar({
     ),
 
     import: $ => choice(
+      seq('import', $.importItem),
       seq(
-        'import',
-        $.importItem
-      ),
-      seq(
-        'import',
-        '(',
-        optSemi,
+        'import', '(',
+        optImplSemi,
         repeat($.importItem),
-        ')',
-        implSemi
+        ')', implSemi
       )
     ),
 
@@ -64,7 +59,7 @@ module.exports = grammar({
 
     constDecl: $ => seq('const', choice(
       $.constDeclItem,
-      seq("(", optSemi, repSeq($.constDeclItem), ")", implSemi),
+      seq("(", optImplSemi, repSeq($.constDeclItem), ")", implSemi),
     )),
 
     constDeclItem: $ => seq(
@@ -74,14 +69,13 @@ module.exports = grammar({
       implSemi,
     ),
 
-    varDecl: $ => choice(
-      $.fullVarDecl,
-      alias($.declAssignmentStmt, $.shortVarDecl)
-    ),
+    varDecl: $ => choice($.fullVarDecl, $.shortVarDecl),
+
+    shortVarDecl: $ => alias($.declAssignmentStmt, $.shortVarDecl),
 
     fullVarDecl: $ => seq("var", choice(
       $.varDeclItem,
-      seq("(", optSemi, repSeq($.varDeclItem), ")"),
+      seq("(", optImplSemi, repSeq($.varDeclItem), ")"),
     )),
 
     varDeclItem: $ => seq(
@@ -127,7 +121,7 @@ module.exports = grammar({
     dynArrayType: $ => seq('[', ']', $.type),
     enumType: $ => seq('enum', '{', repeat($.enumItem), '}'),
     enumItem: $ => seq(field('name', $.ident), implSemi),
-    structType: $ => seq('struct', '{', optSemi, repSeq($.typedIdentList, implSemi), '}'),
+    structType: $ => seq('struct', '{', optImplSemi, repSeq($.typedIdentList, implSemi), '}'),
 
     mapType: $ => seq('map', '[', $.type, ']', $.type),
     interfaceType: $ => seq('interface', '{', repeat($.interfaceItem), '}'),
@@ -139,7 +133,15 @@ module.exports = grammar({
 
     closureType: $ => seq('fn', $.signature),
 
-    signature: $ => seq($.parameterList, optSeq(':', $.type)),
+    signature: $ => seq(
+      $.parameterList,
+      optSeq(':', field('returnTypes', $.returnType))
+    ),
+
+    returnType: $ => choice(
+      $.type,
+      seq("(", $.type, repSeq(",", $.type), ")"),
+    ),
 
     declAssignmentStmt: $ => seq(
       field('identifiers', $.identList),
@@ -166,31 +168,39 @@ module.exports = grammar({
     rcvSignature: $ => seq("(",
       field('name', $.ident), ":",
       field('type', $.type),
-      ")"),
+    ")"),
 
     exprList: $ => seq($.expr, repSeq(",", $.expr)),
 
     parameterList: $ => seq(
       "(",
-      delimSeq(
+      delimSeq(",",
         field('params', $.typedIdentList),
         optSeq('=', field('defaultValue', $.expr)),
       ),
       ")"
     ),
 
-    block: $ => seq("{", optSemi, repSeq($.stmt), "}"),
+    block: $ => seq("{", optImplSemi, repSeq($.stmt), "}"),
 
     stmt: $ => choice(
       seq(alias($.designator, $.callStmt), implSemi),
       $.block,
       $.decl,
+      seq($.ifStmt, implSemi),
+    ),
+
+    ifStmt: $ => seq("if",
+      optSeq(field('locals', $.shortVarDecl), implSemi),
+      field('condition', $.expr),
+      field('consequent', $.block),
+      optSeq("else", field('alternative', $.block))
     ),
 
     expr: $ => choice($.stringLiteral, $.number, $.primary, $.mapLiteral, $.arrayLiteral),
 
-    arrayLiteral: $ => prec(1, seq("{", delimSeq(",", optSemi, $.expr), optSemi, "}")),
-    mapLiteral: $ => seq("{", delimSeq(",", $.expr, ':', optSemi, $.expr), optSemi, "}"),
+    arrayLiteral: $ => prec(1, seq("{", delimSeq(",", optImplSemi, $.expr), optImplSemi, "}")),
+    mapLiteral: $ => seq("{", delimSeq(",", $.expr, ':', optImplSemi, $.expr), optImplSemi, "}"),
 
     designator: $ => $.primary,
 

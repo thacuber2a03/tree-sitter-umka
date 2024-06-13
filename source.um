@@ -1,4 +1,4 @@
-import (
+/* test */ import (
 
 
     "std.um"
@@ -6,13 +6,21 @@ import (
     th_font = "font.um"
 )
 
+// some comment
+
 type X = struct {
 
     field: map[str]int
-
+    a: [10]int
+    b, c: []int
+    d: str
+    e: weak ^th_font::Font
+    f: fn (a: int, b: char): (bool, uint)
 }
 
 const x = 32
+
+const x2* = 32
 
 const (
 
@@ -22,11 +30,11 @@ const (
 
 )
 
-fn (x: X) make() {
+fn (x: X) method() {
 
 }
 
-fn make() {
+fn main() {
 
     var b: int = 1
     var c: []int = {
@@ -36,6 +44,9 @@ fn make() {
     }
 
 
-    printf("Hello \n %d world!")
+    printf("Hello \n %d world!", 42)
 
+    if a := true; a {
+        printf("yes")
+    }
 }
