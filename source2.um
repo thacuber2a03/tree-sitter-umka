@@ -1,0 +1,8 @@
+fn main() {
+    switch v := input(); v {
+        case 0: printf("zero")
+        case 1: printf("one")
+        case 2: printf("two")
+        default: printf("other")
+    }
+}

@@ -21,12 +21,12 @@ module.exports = grammar({
 
   extras: $ => [
     $.comment,
-    /[ \t]/,
+    /[ \t\r]/,
   ],
 
   word: $ => $.ident,
 
-  conflicts: $ => [],
+  conflicts: $ => [[$.signature]],
 
   rules: {
     program: $ => seq(
@@ -149,7 +149,8 @@ module.exports = grammar({
 
     declAssignmentStmt: $ => seq(
       field('identifiers', $.identList),
-      ":=", field('values', $.exprList)
+      ":=",
+      field('values', $.exprList)
     ),
 
     fnDecl: $ => seq("fn",
@@ -172,7 +173,8 @@ module.exports = grammar({
     rcvSignature: $ => seq("(",
       field('name', $.ident), ":",
       field('type', $.type),
-    ")"),
+      ")"
+    ),
 
     exprList: $ => seq($.expr, repSeq(",", $.expr)),
 
@@ -185,13 +187,14 @@ module.exports = grammar({
       ")"
     ),
 
-    block: $ => seq("{", optImplSemi, repSeq($.stmt), "}"),
+    block: $ => seq("{", optImplSemi, repeat($.stmt), "}"),
 
     stmt: $ => choice(
       seq($.block, optImplSemi),
       $.decl,
       seq($.ifStmt, optImplSemi),
-      seq(choice($.forStmt, $.forInStmt), optImplSemi),
+      seq($.forStmt, implSemi),
+      seq($.switchStmt, implSemi),
       seq($.simpleStmt, implSemi),
       seq(alias("continue", $.continueStmt), implSemi),
       seq(alias("break", $.continueStmt), implSemi),
@@ -201,24 +204,75 @@ module.exports = grammar({
     callStmt: $ => alias($.designator, 'callStmt'),
 
     ifStmt: $ => seq("if",
-      optSeq(field('locals', $.shortVarDecl), implSemi),
-      field('condition', $.expr),
-      field('consequent', $.block),
-      optSeq("else", field('alternative', $.block))
-    ),
-
-    forStmt: $ => seq("for",
       optSeq(field('locals', $.shortVarDecl), ";"),
       field('condition', $.expr),
-      optSeq(";", field('increment', $.simpleStmt)),
-      field('body', $.block),
+      field('consequent', $.block),
+      optSeq("else", field('alternative', choice($.ifStmt, $.block)))
     ),
 
-    forInStmt: $ => seq("for",
+    forStmt: $ => seq(
+      "for",
+      choice(
+        $.forHeader,
+        $.forInHeader,
+      ),
+      field('body', $.block)
+    ),
+
+    forHeader: $ => prec(1, seq(
+      optSeq(field('init', $.simpleStmt), ";"),
+      field('condition', $.expr),
+      optSeq(";", field('post', $.simpleStmt)),
+    )),
+
+    forInHeader: $ => seq(
       field('index', $.ident),
       optSeq(",", field('value', seq($.ident, optional("^")))),
       "in", field('expr', $.expr),
-      field('body', $.block),
+    ),
+
+    switchStmt: $ => choice(
+      $.exprSwitchStmt,
+      $.switchStmtDisambiguated,
+    ),
+
+    switchStmtDisambiguated: $ => prec(1, seq(
+      "switch",
+      field('name', $.ident),
+      ':=',
+      choice(seq(
+        $.typeOf,
+        '{', optImplSemi,
+        repeat($.typeCase),
+        '}'
+      ), seq(
+        $.expr, ";",
+        field('value', $.expr),
+        "{", optImplSemi,
+        repeat($.exprCase),
+        "}",
+      ))
+    )),
+
+    exprSwitchStmt: $ => seq(
+      "switch",
+      optSeq(field('locals', $.shortVarDecl), ";"),
+      field('value', $.expr),
+      "{", optImplSemi,
+      repeat($.exprCase),
+      "}",
+    ),
+
+    exprCase: $ => choice(
+      seq("case", delimSeq(",", $.expr), ":", optImplSemi, repeat($.stmt)),
+      seq("default", ":", optImplSemi, repeat($.stmt)),
+    ),
+
+    typeOf: $ => prec(1, seq('type', '(', $.expr, ')')),
+
+    typeCase: $ => choice(
+      seq('case', $.type, ':', optImplSemi, repeat($.stmt)),
+      seq('default', ':', optImplSemi, repeat($.stmt))
     ),
 
     simpleStmt: $ => choice(
@@ -248,7 +302,7 @@ module.exports = grammar({
     ),
 
     functionCall: $ => seq(
-      $.qualIdent,
+      field('name', $.qualIdent),
       field('arguments', seq(
         "(", optSeq($.expr, repSeq(",", $.expr)), ")",
       ))
@@ -261,38 +315,38 @@ module.exports = grammar({
       $.builtinCallBasic,
     ),
 
-    builtinCallBasic: $ => seq(
+    builtinCallBasic: $ => prec(1, seq(
       choice("append", "atan", "atan2", "cap", "ceil", "copy", "cos", "delete",
         "exit", "exp", "fabs", "fiberalive", "fibercall", "fiberspawn",
-        "floor", "fprintf", "fscanf", "insert", "keys", "len", "log", "make",
-        "memusage", "new", "printf", "round", "scanf", "selfhasptr",
-        "selftypeeq", "sin", "sizeof", "sizeofself", "slice", "sprintf",
-        "sqrt", "sscanf", "trunc", "typeptr", "valid", "validkey"),
+        "floor", "insert", "keys", "len", "log",
+        "memusage", "round", "selfhasptr",
+        "selftypeeq", "sin", "sizeof", "sizeofself", "slice",
+        "sqrt", "trunc", "typeptr", "valid", "validkey"),
       field('arguments', seq(
         "(", optSeq($.expr, repSeq(",", $.expr)), ")",
       ))
-    ),
+    )),
 
-    builtinCallFmt: $ => seq(
+    builtinCallFmt: $ => prec(1, seq(
       choice('printf', 'sprintf', 'fprintf', 'scanf', 'sscanf', 'fscanf'),
       field('arguments', seq(
         "(", $.stringFmtLiteral, optSeq(',', $.expr, repSeq(",", $.expr)), ")",
       ))
-    ),
+    )),
 
-    builtinCallMake: $ => seq(
+    builtinCallMake: $ => prec(1, seq(
       'make',
       field('arguments', seq(
         "(", $.type, optSeq(',', $.expr), ")",
       ))
-    ),
+    )),
 
-    builtinCall1Type: $ => seq(
+    builtinCall1Type: $ => prec(1, seq(
       choice('new', 'sizeof', 'typeptr'),
       field('arguments', seq(
         "(", $.type, ")",
       ))
-    ),
+    )),
 
     ident: $ => /[A-Za-z_][A-Za-z_0-9]*/,
 
@@ -307,7 +361,7 @@ module.exports = grammar({
       /[0-9]+\.[0-9]+[Ee]\-?[0-9]+/,
     ),
 
-    charLiteral: $ => seq("'", repeat(choice($.escSeq, /./)), '"'),
+    charLiteral: $ => seq("'", repeat(choice($.escSeq, /./)), "'"),
     stringLiteral: $ => seq('"', repeat(choice($.escSeq, /./)), '"'),
     stringFmtLiteral: $ => seq('"', repeat(choice($.escSeq, $.fmtSeq, /./)), '"'),
     stringImportLiteral: $ => seq('"', repeat(choice($.escSeq, $.modSeq, /./)), '"'),
