@@ -1,3 +1,4 @@
+
 /* test */ import (
 
 
@@ -31,7 +32,6 @@ const (
 )
 
 fn (x: X) method() {
-
 }
 
 fn main() {

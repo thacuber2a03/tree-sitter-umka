@@ -51,8 +51,8 @@
 - [ ] `typeSwitchStmt`
 - [ ] `typeCase`
 - [ ] `default`
-- [ ] `forStmt`
-- [ ] `forHeader`
+- [ ] `forStmt` (missing forInHeader)
+- [x] `forHeader`
 - [ ] `forInHeader`
 - [ ] `breakStmt`
 - [ ] `continueStmt`

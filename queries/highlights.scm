@@ -1,6 +1,6 @@
-["const" "enum" "fn" "map" "import" "interface" "struct" "type" "var" "weak"] @keyword
+["const" "enum" "fn" "map" "import" "interface" "struct" "type" "var" "weak" "in"] @keyword
 
-["if"] @keyword.conditional
+["if" "for"] @keyword.conditional
 
 ["append" "atan" "atan2" "cap" "ceil" "copy" "cos" "delete"
  "exit" "exp" "fabs" "fiberalive" "fibercall" "fiberspawn"
