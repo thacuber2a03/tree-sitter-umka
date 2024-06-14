@@ -38,19 +38,19 @@
 - [x] `singleAssgnStmt`
 - [x] `listAssgnStmt`
 - [x] `assignmentStmt`
-- [ ] `shortAssignmentStmt`
+- [x] `shortAssignmentStmt`
 - [x] `declAssignmentStmt`
 - [x] `singleDeclAssgnStmt`
 - [x] `listDeclAssgnStmt`
 - [x] `incDecStmt`
 - [x] `callStmt`
 - [x] `ifStmt`
-- [ ] `switchStmt`
-- [ ] `exprSwitchStmt`
-- [ ] `exprCase`
-- [ ] `typeSwitchStmt`
-- [ ] `typeCase`
-- [ ] `default`
+- [x] `switchStmt`
+- [x] `exprSwitchStmt`
+- [x] `exprCase`
+- [x] `typeSwitchStmt`
+- [x] `typeCase`
+- [x] `default`
 - [x] `forStmt`
 - [x] `forHeader`
 - [x] `forInHeader`
@@ -68,7 +68,7 @@
 - [ ] `designatorList`
 - [ ] `designator`
 - [ ] `primary`
-- [ ] `qualIdent`
+- [x] `qualIdent`
 - [x] `builtinCall`
 - [ ] `selectors`
 - [ ] `derefSelector`

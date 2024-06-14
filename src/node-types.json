@@ -32,6 +32,10 @@
           "named": true
         },
         {
+          "type": "functionCall",
+          "named": true
+        },
+        {
           "type": "hexNumber",
           "named": true
         },
@@ -87,6 +91,10 @@
           "named": true
         },
         {
+          "type": "functionCall",
+          "named": true
+        },
+        {
           "type": "hexNumber",
           "named": true
         },
@@ -138,10 +146,6 @@
           "named": true
         },
         {
-          "type": "forInStmt",
-          "named": true
-        },
-        {
           "type": "forStmt",
           "named": true
         },
@@ -167,6 +171,10 @@
         },
         {
           "type": "shortVarDecl",
+          "named": true
+        },
+        {
+          "type": "switchStmt",
           "named": true
         },
         {
@@ -245,6 +253,10 @@
             "named": true
           },
           {
+            "type": "functionCall",
+            "named": true
+          },
+          {
             "type": "hexNumber",
             "named": true
           },
@@ -266,16 +278,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "qualIdent",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -320,6 +322,10 @@
           },
           {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "functionCall",
             "named": true
           },
           {
@@ -395,6 +401,10 @@
             "named": true
           },
           {
+            "type": "functionCall",
+            "named": true
+          },
+          {
             "type": "hexNumber",
             "named": true
           },
@@ -444,6 +454,10 @@
         },
         {
           "type": "builtinCallMake",
+          "named": true
+        },
+        {
+          "type": "functionCall",
           "named": true
         },
         {
@@ -526,6 +540,10 @@
             "named": true
           },
           {
+            "type": "functionCall",
+            "named": true
+          },
+          {
             "type": "hexNumber",
             "named": true
           },
@@ -581,6 +599,10 @@
         },
         {
           "type": "builtinCallMake",
+          "named": true
+        },
+        {
+          "type": "functionCall",
           "named": true
         },
         {
@@ -662,6 +684,117 @@
     "fields": {}
   },
   {
+    "type": "exprCase",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "arrayLiteral",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "builtinCall1Type",
+          "named": true
+        },
+        {
+          "type": "builtinCallBasic",
+          "named": true
+        },
+        {
+          "type": "builtinCallFmt",
+          "named": true
+        },
+        {
+          "type": "builtinCallMake",
+          "named": true
+        },
+        {
+          "type": "constDecl",
+          "named": true
+        },
+        {
+          "type": "continueStmt",
+          "named": true
+        },
+        {
+          "type": "decNumber",
+          "named": true
+        },
+        {
+          "type": "fnDecl",
+          "named": true
+        },
+        {
+          "type": "forStmt",
+          "named": true
+        },
+        {
+          "type": "fullVarDecl",
+          "named": true
+        },
+        {
+          "type": "functionCall",
+          "named": true
+        },
+        {
+          "type": "hexNumber",
+          "named": true
+        },
+        {
+          "type": "ifStmt",
+          "named": true
+        },
+        {
+          "type": "incDecStmt",
+          "named": true
+        },
+        {
+          "type": "mapLiteral",
+          "named": true
+        },
+        {
+          "type": "methodDecl",
+          "named": true
+        },
+        {
+          "type": "qualIdent",
+          "named": true
+        },
+        {
+          "type": "realNumber",
+          "named": true
+        },
+        {
+          "type": "returnStmt",
+          "named": true
+        },
+        {
+          "type": "shortVarDecl",
+          "named": true
+        },
+        {
+          "type": "stringLiteral",
+          "named": true
+        },
+        {
+          "type": "switchStmt",
+          "named": true
+        },
+        {
+          "type": "typeDecl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "exprList",
     "named": true,
     "fields": {},
@@ -694,6 +827,10 @@
           "named": true
         },
         {
+          "type": "functionCall",
+          "named": true
+        },
+        {
           "type": "hexNumber",
           "named": true
         },
@@ -711,6 +848,86 @@
         },
         {
           "type": "stringLiteral",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "exprSwitchStmt",
+    "named": true,
+    "fields": {
+      "locals": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "shortVarDecl",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "arrayLiteral",
+            "named": true
+          },
+          {
+            "type": "builtinCall1Type",
+            "named": true
+          },
+          {
+            "type": "builtinCallBasic",
+            "named": true
+          },
+          {
+            "type": "builtinCallFmt",
+            "named": true
+          },
+          {
+            "type": "builtinCallMake",
+            "named": true
+          },
+          {
+            "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "functionCall",
+            "named": true
+          },
+          {
+            "type": "hexNumber",
+            "named": true
+          },
+          {
+            "type": "mapLiteral",
+            "named": true
+          },
+          {
+            "type": "qualIdent",
+            "named": true
+          },
+          {
+            "type": "realNumber",
+            "named": true
+          },
+          {
+            "type": "stringLiteral",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "exprCase",
           "named": true
         }
       ]
@@ -763,19 +980,105 @@
     }
   },
   {
-    "type": "forInStmt",
+    "type": "forHeader",
     "named": true,
     "fields": {
-      "body": {
+      "condition": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "block",
+            "type": "arrayLiteral",
+            "named": true
+          },
+          {
+            "type": "builtinCall1Type",
+            "named": true
+          },
+          {
+            "type": "builtinCallBasic",
+            "named": true
+          },
+          {
+            "type": "builtinCallFmt",
+            "named": true
+          },
+          {
+            "type": "builtinCallMake",
+            "named": true
+          },
+          {
+            "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "functionCall",
+            "named": true
+          },
+          {
+            "type": "hexNumber",
+            "named": true
+          },
+          {
+            "type": "mapLiteral",
+            "named": true
+          },
+          {
+            "type": "qualIdent",
+            "named": true
+          },
+          {
+            "type": "realNumber",
+            "named": true
+          },
+          {
+            "type": "stringLiteral",
             "named": true
           }
         ]
       },
+      "init": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "callStmt",
+            "named": false
+          },
+          {
+            "type": "incDecStmt",
+            "named": true
+          },
+          {
+            "type": "shortVarDecl",
+            "named": true
+          }
+        ]
+      },
+      "post": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "callStmt",
+            "named": false
+          },
+          {
+            "type": "incDecStmt",
+            "named": true
+          },
+          {
+            "type": "shortVarDecl",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "forInHeader",
+    "named": true,
+    "fields": {
       "expr": {
         "multiple": false,
         "required": true,
@@ -802,6 +1105,10 @@
           },
           {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "functionCall",
             "named": true
           },
           {
@@ -865,11 +1172,58 @@
             "named": true
           }
         ]
-      },
-      "condition": {
-        "multiple": false,
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "forHeader",
+          "named": true
+        },
+        {
+          "type": "forInHeader",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "fullVarDecl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "varDeclItem",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "functionCall",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
           {
             "type": "arrayLiteral",
             "named": true
@@ -895,6 +1249,10 @@
             "named": true
           },
           {
+            "type": "functionCall",
+            "named": true
+          },
+          {
             "type": "hexNumber",
             "named": true
           },
@@ -916,49 +1274,16 @@
           }
         ]
       },
-      "increment": {
+      "name": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
-            "type": "callStmt",
-            "named": false
-          },
-          {
-            "type": "incDecStmt",
-            "named": true
-          },
-          {
-            "type": "shortVarDecl",
-            "named": true
-          }
-        ]
-      },
-      "locals": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "shortVarDecl",
+            "type": "qualIdent",
             "named": true
           }
         ]
       }
-    }
-  },
-  {
-    "type": "fullVarDecl",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "varDeclItem",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -1002,6 +1327,10 @@
           {
             "type": "block",
             "named": true
+          },
+          {
+            "type": "ifStmt",
+            "named": true
           }
         ]
       },
@@ -1031,6 +1360,10 @@
           },
           {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "functionCall",
             "named": true
           },
           {
@@ -1221,6 +1554,10 @@
           "named": true
         },
         {
+          "type": "functionCall",
+          "named": true
+        },
+        {
           "type": "hexNumber",
           "named": true
         },
@@ -1360,6 +1697,10 @@
           },
           {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "functionCall",
             "named": true
           },
           {
@@ -1540,6 +1881,10 @@
           "named": true
         },
         {
+          "type": "functionCall",
+          "named": true
+        },
+        {
           "type": "hexNumber",
           "named": true
         },
@@ -1698,6 +2043,161 @@
     }
   },
   {
+    "type": "switchStmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "exprSwitchStmt",
+          "named": true
+        },
+        {
+          "type": "switchStmtDisambiguated",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "switchStmtDisambiguated",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "arrayLiteral",
+            "named": true
+          },
+          {
+            "type": "builtinCall1Type",
+            "named": true
+          },
+          {
+            "type": "builtinCallBasic",
+            "named": true
+          },
+          {
+            "type": "builtinCallFmt",
+            "named": true
+          },
+          {
+            "type": "builtinCallMake",
+            "named": true
+          },
+          {
+            "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "functionCall",
+            "named": true
+          },
+          {
+            "type": "hexNumber",
+            "named": true
+          },
+          {
+            "type": "mapLiteral",
+            "named": true
+          },
+          {
+            "type": "qualIdent",
+            "named": true
+          },
+          {
+            "type": "realNumber",
+            "named": true
+          },
+          {
+            "type": "stringLiteral",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arrayLiteral",
+          "named": true
+        },
+        {
+          "type": "builtinCall1Type",
+          "named": true
+        },
+        {
+          "type": "builtinCallBasic",
+          "named": true
+        },
+        {
+          "type": "builtinCallFmt",
+          "named": true
+        },
+        {
+          "type": "builtinCallMake",
+          "named": true
+        },
+        {
+          "type": "decNumber",
+          "named": true
+        },
+        {
+          "type": "exprCase",
+          "named": true
+        },
+        {
+          "type": "functionCall",
+          "named": true
+        },
+        {
+          "type": "hexNumber",
+          "named": true
+        },
+        {
+          "type": "mapLiteral",
+          "named": true
+        },
+        {
+          "type": "qualIdent",
+          "named": true
+        },
+        {
+          "type": "realNumber",
+          "named": true
+        },
+        {
+          "type": "stringLiteral",
+          "named": true
+        },
+        {
+          "type": "typeCase",
+          "named": true
+        },
+        {
+          "type": "typeOf",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "type",
     "named": true,
     "fields": {},
@@ -1745,6 +2245,73 @@
     }
   },
   {
+    "type": "typeCase",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "constDecl",
+          "named": true
+        },
+        {
+          "type": "continueStmt",
+          "named": true
+        },
+        {
+          "type": "fnDecl",
+          "named": true
+        },
+        {
+          "type": "forStmt",
+          "named": true
+        },
+        {
+          "type": "fullVarDecl",
+          "named": true
+        },
+        {
+          "type": "ifStmt",
+          "named": true
+        },
+        {
+          "type": "incDecStmt",
+          "named": true
+        },
+        {
+          "type": "methodDecl",
+          "named": true
+        },
+        {
+          "type": "returnStmt",
+          "named": true
+        },
+        {
+          "type": "shortVarDecl",
+          "named": true
+        },
+        {
+          "type": "switchStmt",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        },
+        {
+          "type": "typeDecl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "typeDecl",
     "named": true,
     "fields": {},
@@ -1784,6 +2351,65 @@
         },
         {
           "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typeOf",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arrayLiteral",
+          "named": true
+        },
+        {
+          "type": "builtinCall1Type",
+          "named": true
+        },
+        {
+          "type": "builtinCallBasic",
+          "named": true
+        },
+        {
+          "type": "builtinCallFmt",
+          "named": true
+        },
+        {
+          "type": "builtinCallMake",
+          "named": true
+        },
+        {
+          "type": "decNumber",
+          "named": true
+        },
+        {
+          "type": "functionCall",
+          "named": true
+        },
+        {
+          "type": "hexNumber",
+          "named": true
+        },
+        {
+          "type": "mapLiteral",
+          "named": true
+        },
+        {
+          "type": "qualIdent",
+          "named": true
+        },
+        {
+          "type": "realNumber",
+          "named": true
+        },
+        {
+          "type": "stringLiteral",
           "named": true
         }
       ]
@@ -1848,6 +2474,10 @@
           },
           {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "functionCall",
             "named": true
           },
           {
@@ -1947,6 +2577,30 @@
     "named": false
   },
   {
+    "type": "append",
+    "named": false
+  },
+  {
+    "type": "atan",
+    "named": false
+  },
+  {
+    "type": "atan2",
+    "named": false
+  },
+  {
+    "type": "cap",
+    "named": false
+  },
+  {
+    "type": "case",
+    "named": false
+  },
+  {
+    "type": "ceil",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
   },
@@ -1959,8 +2613,24 @@
     "named": true
   },
   {
+    "type": "copy",
+    "named": false
+  },
+  {
+    "type": "cos",
+    "named": false
+  },
+  {
     "type": "decNumber",
     "named": true
+  },
+  {
+    "type": "default",
+    "named": false
+  },
+  {
+    "type": "delete",
+    "named": false
   },
   {
     "type": "else",
@@ -1968,6 +2638,34 @@
   },
   {
     "type": "enum",
+    "named": false
+  },
+  {
+    "type": "exit",
+    "named": false
+  },
+  {
+    "type": "exp",
+    "named": false
+  },
+  {
+    "type": "fabs",
+    "named": false
+  },
+  {
+    "type": "fiberalive",
+    "named": false
+  },
+  {
+    "type": "fibercall",
+    "named": false
+  },
+  {
+    "type": "fiberspawn",
+    "named": false
+  },
+  {
+    "type": "floor",
     "named": false
   },
   {
@@ -2011,7 +2709,23 @@
     "named": false
   },
   {
+    "type": "insert",
+    "named": false
+  },
+  {
     "type": "interface",
+    "named": false
+  },
+  {
+    "type": "keys",
+    "named": false
+  },
+  {
+    "type": "len",
+    "named": false
+  },
+  {
+    "type": "log",
     "named": false
   },
   {
@@ -2023,6 +2737,10 @@
     "named": false
   },
   {
+    "type": "memusage",
+    "named": false
+  },
+  {
     "type": "new",
     "named": false
   },
@@ -2031,7 +2749,23 @@
     "named": false
   },
   {
+    "type": "round",
+    "named": false
+  },
+  {
     "type": "scanf",
+    "named": false
+  },
+  {
+    "type": "selfhasptr",
+    "named": false
+  },
+  {
+    "type": "selftypeeq",
+    "named": false
+  },
+  {
+    "type": "sin",
     "named": false
   },
   {
@@ -2039,7 +2773,19 @@
     "named": false
   },
   {
+    "type": "sizeofself",
+    "named": false
+  },
+  {
+    "type": "slice",
+    "named": false
+  },
+  {
     "type": "sprintf",
+    "named": false
+  },
+  {
+    "type": "sqrt",
     "named": false
   },
   {
@@ -2051,11 +2797,27 @@
     "named": false
   },
   {
+    "type": "switch",
+    "named": false
+  },
+  {
+    "type": "trunc",
+    "named": false
+  },
+  {
     "type": "type",
     "named": false
   },
   {
     "type": "typeptr",
+    "named": false
+  },
+  {
+    "type": "valid",
+    "named": false
+  },
+  {
+    "type": "validkey",
     "named": false
   },
   {

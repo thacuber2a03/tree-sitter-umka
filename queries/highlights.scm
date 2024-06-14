@@ -1,4 +1,4 @@
-["const" "enum" "fn" "map" "import" "interface" "struct" "type" "var" "weak" "in"] @keyword
+["case" "const" "default" "enum" "fn" "map" "import" "interface" "struct" "switch" "type" "var" "weak" "in"] @keyword
 
 ["if" "for"] @keyword.conditional
 
@@ -16,6 +16,8 @@
 	name: (ident) @function.method)
 
 (fnDecl name: (ident) @function)
+
+(functionCall name: (qualIdent name: (ident) @function))
 
 (parameterList params: (typedIdentList
 	(identList (ident) @variable.parameter)))
