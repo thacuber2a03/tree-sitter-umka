@@ -16,6 +16,7 @@ module.exports = grammar({
     $.number,
     $.varDecl,
     $.builtinCall,
+    $.callStmt // TODO: check if this is fine
   ],
 
   extras: $ => [

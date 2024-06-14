@@ -34,29 +34,29 @@
 - [x] `fnPrototype`
 - [x] `stmtList`
 - [x] `stmt`
-- [ ] `simpleStmt`
-- [ ] `singleAssgnStmt`
-- [ ] `listAssgnStmt`
-- [ ] `assignmentStmt`
+- [x] `simpleStmt`
+- [x] `singleAssgnStmt`
+- [x] `listAssgnStmt`
+- [x] `assignmentStmt`
 - [ ] `shortAssignmentStmt`
-- [ ] `singleDeclAssgnStmt`
-- [ ] `listDeclAssgnStmt`
-- [ ] `declAssignmentStmt`
-- [ ] `incDecStmt`
-- [ ] `callStmt`
-- [ ] `ifStmt`
+- [x] `declAssignmentStmt`
+- [x] `singleDeclAssgnStmt`
+- [x] `listDeclAssgnStmt`
+- [x] `incDecStmt`
+- [x] `callStmt`
+- [x] `ifStmt`
 - [ ] `switchStmt`
 - [ ] `exprSwitchStmt`
 - [ ] `exprCase`
 - [ ] `typeSwitchStmt`
 - [ ] `typeCase`
 - [ ] `default`
-- [ ] `forStmt` (missing forInHeader)
+- [x] `forStmt`
 - [x] `forHeader`
-- [ ] `forInHeader`
-- [ ] `breakStmt`
-- [ ] `continueStmt`
-- [ ] `returnStmt`
+- [x] `forInHeader`
+- [x] `breakStmt`
+- [x] `continueStmt`
+- [x] `returnStmt`
 - [x] `exprList`
 - [x] `expr`
 - [ ] `logicalExpr`
