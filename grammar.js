@@ -240,11 +240,18 @@ module.exports = grammar({
 
     designator: $ => $.primary,
 
-    primary: $ => choice($.qualIdent, $.builtinCall),
+    primary: $ => choice($.qualIdent, $.builtinCall, $.functionCall),
 
     qualIdent: $ => seq(
       optSeq(field('module', $.ident), '::'),
       field('name', $.ident)
+    ),
+
+    functionCall: $ => seq(
+      $.qualIdent,
+      field('arguments', seq(
+        "(", optSeq($.expr, repSeq(",", $.expr)), ")",
+      ))
     ),
 
     builtinCall: $ => choice(
@@ -255,7 +262,12 @@ module.exports = grammar({
     ),
 
     builtinCallBasic: $ => seq(
-      $.qualIdent,
+      choice("append", "atan", "atan2", "cap", "ceil", "copy", "cos", "delete",
+        "exit", "exp", "fabs", "fiberalive", "fibercall", "fiberspawn",
+        "floor", "fprintf", "fscanf", "insert", "keys", "len", "log", "make",
+        "memusage", "new", "printf", "round", "scanf", "selfhasptr",
+        "selftypeeq", "sin", "sizeof", "sizeofself", "slice", "sprintf",
+        "sqrt", "sscanf", "trunc", "typeptr", "valid", "validkey"),
       field('arguments', seq(
         "(", optSeq($.expr, repSeq(",", $.expr)), ")",
       ))

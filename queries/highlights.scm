@@ -8,6 +8,7 @@
  "memusage" "new" "printf" "round" "scanf" "selfhasptr"
  "selftypeeq" "sin" "sizeof" "sizeofself" "slice" "sprintf"
  "sqrt" "sscanf" "trunc" "typeptr" "valid" "validkey"] @support.function @function.builtin
+
 ["=" ":=" "*" ":" "," "::"] @operator
 
 (methodDecl

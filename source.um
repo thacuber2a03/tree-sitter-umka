@@ -49,4 +49,10 @@ fn main() {
     if a := true; a {
         printf("yes")
     }
+
+    // pretend the 10 is a condition that tests for i < 10
+    for i := 0; 10; i++ {}
+    for 10; i++ {}
+    for 10 {}
+    for i, v^ in {1, 2, 3, 4} {}
 }
