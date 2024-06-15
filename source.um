@@ -60,6 +60,16 @@ fn main() {
         default: printf("other")
     }
 
+    y := int{x: 32, b: 64564, z: {32423, 234, 2423}}
+    x := sfgfg{a, b, 324}
+    n := .hello
+    z := |a, b| {
+        return a
+    }
+
+    x := DKFJ(a)
+
+
     switch val := type(x) {
         case int: printf("int")
         case str: printf("str")

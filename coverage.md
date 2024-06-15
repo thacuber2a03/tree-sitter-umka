@@ -80,10 +80,10 @@
 - [x] `arrayLiteral`
 - [x] `dynArrayLiteral`
 - [x] `mapLiteral`
-- [ ] `structLiteral`
-- [ ] `closureLiteral`
-- [ ] `typeCast`
-- [ ] `enumConst`
+- [x] `structLiteral`
+- [x] `closureLiteral`
+- [x] `typeCast`
+- [x] `enumConst`
 - [x] `ident`
 - [x] `intNumber`
 - [x] `decNumber`
