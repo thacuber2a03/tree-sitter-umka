@@ -1,64 +1,5 @@
 [
   {
-    "type": "arrayLiteral",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "arrayLiteral",
-          "named": true
-        },
-        {
-          "type": "builtinCall1Type",
-          "named": true
-        },
-        {
-          "type": "builtinCallBasic",
-          "named": true
-        },
-        {
-          "type": "builtinCallFmt",
-          "named": true
-        },
-        {
-          "type": "builtinCallMake",
-          "named": true
-        },
-        {
-          "type": "decNumber",
-          "named": true
-        },
-        {
-          "type": "functionCall",
-          "named": true
-        },
-        {
-          "type": "hexNumber",
-          "named": true
-        },
-        {
-          "type": "mapLiteral",
-          "named": true
-        },
-        {
-          "type": "qualIdent",
-          "named": true
-        },
-        {
-          "type": "realNumber",
-          "named": true
-        },
-        {
-          "type": "stringLiteral",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "arrayType",
     "named": true,
     "fields": {},
@@ -67,10 +8,6 @@
       "required": true,
       "types": [
         {
-          "type": "arrayLiteral",
-          "named": true
-        },
-        {
           "type": "builtinCall1Type",
           "named": true
         },
@@ -87,7 +24,15 @@
           "named": true
         },
         {
+          "type": "closureLiteral",
+          "named": true
+        },
+        {
           "type": "decNumber",
+          "named": true
+        },
+        {
+          "type": "enumLiteral",
           "named": true
         },
         {
@@ -99,7 +44,7 @@
           "named": true
         },
         {
-          "type": "mapLiteral",
+          "type": "literal",
           "named": true
         },
         {
@@ -116,6 +61,10 @@
         },
         {
           "type": "type",
+          "named": true
+        },
+        {
+          "type": "typeCast",
           "named": true
         }
       ]
@@ -229,10 +178,6 @@
             "named": false
           },
           {
-            "type": "arrayLiteral",
-            "named": true
-          },
-          {
             "type": "builtinCall1Type",
             "named": true
           },
@@ -249,7 +194,15 @@
             "named": true
           },
           {
+            "type": "closureLiteral",
+            "named": true
+          },
+          {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "enumLiteral",
             "named": true
           },
           {
@@ -261,7 +214,7 @@
             "named": true
           },
           {
-            "type": "mapLiteral",
+            "type": "literal",
             "named": true
           },
           {
@@ -274,6 +227,10 @@
           },
           {
             "type": "stringLiteral",
+            "named": true
+          },
+          {
+            "type": "typeCast",
             "named": true
           }
         ]
@@ -301,10 +258,6 @@
             "named": false
           },
           {
-            "type": "arrayLiteral",
-            "named": true
-          },
-          {
             "type": "builtinCall1Type",
             "named": true
           },
@@ -321,7 +274,15 @@
             "named": true
           },
           {
+            "type": "closureLiteral",
+            "named": true
+          },
+          {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "enumLiteral",
             "named": true
           },
           {
@@ -333,7 +294,7 @@
             "named": true
           },
           {
-            "type": "mapLiteral",
+            "type": "literal",
             "named": true
           },
           {
@@ -350,6 +311,10 @@
           },
           {
             "type": "stringLiteral",
+            "named": true
+          },
+          {
+            "type": "typeCast",
             "named": true
           }
         ]
@@ -377,10 +342,6 @@
             "named": false
           },
           {
-            "type": "arrayLiteral",
-            "named": true
-          },
-          {
             "type": "builtinCall1Type",
             "named": true
           },
@@ -397,7 +358,15 @@
             "named": true
           },
           {
+            "type": "closureLiteral",
+            "named": true
+          },
+          {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "enumLiteral",
             "named": true
           },
           {
@@ -409,7 +378,7 @@
             "named": true
           },
           {
-            "type": "mapLiteral",
+            "type": "literal",
             "named": true
           },
           {
@@ -426,6 +395,10 @@
           },
           {
             "type": "type",
+            "named": true
+          },
+          {
+            "type": "typeCast",
             "named": true
           }
         ]
@@ -462,6 +435,25 @@
         },
         {
           "type": "qualIdent",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "closureLiteral",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "ident",
           "named": true
         }
       ]
@@ -516,10 +508,6 @@
         "required": true,
         "types": [
           {
-            "type": "arrayLiteral",
-            "named": true
-          },
-          {
             "type": "builtinCall1Type",
             "named": true
           },
@@ -536,7 +524,15 @@
             "named": true
           },
           {
+            "type": "closureLiteral",
+            "named": true
+          },
+          {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "enumLiteral",
             "named": true
           },
           {
@@ -548,7 +544,7 @@
             "named": true
           },
           {
-            "type": "mapLiteral",
+            "type": "literal",
             "named": true
           },
           {
@@ -561,6 +557,10 @@
           },
           {
             "type": "stringLiteral",
+            "named": true
+          },
+          {
+            "type": "typeCast",
             "named": true
           }
         ]
@@ -575,6 +575,32 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "declAssignmentStmt",
+    "named": true,
+    "fields": {
+      "identifiers": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identList",
+            "named": true
+          }
+        ]
+      },
+      "values": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "exprList",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -659,6 +685,22 @@
     }
   },
   {
+    "type": "enumLiteral",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "enumType",
     "named": true,
     "fields": {},
@@ -692,10 +734,6 @@
       "required": false,
       "types": [
         {
-          "type": "arrayLiteral",
-          "named": true
-        },
-        {
           "type": "block",
           "named": true
         },
@@ -716,6 +754,10 @@
           "named": true
         },
         {
+          "type": "closureLiteral",
+          "named": true
+        },
+        {
           "type": "constDecl",
           "named": true
         },
@@ -725,6 +767,10 @@
         },
         {
           "type": "decNumber",
+          "named": true
+        },
+        {
+          "type": "enumLiteral",
           "named": true
         },
         {
@@ -756,7 +802,7 @@
           "named": true
         },
         {
-          "type": "mapLiteral",
+          "type": "literal",
           "named": true
         },
         {
@@ -788,6 +834,10 @@
           "named": true
         },
         {
+          "type": "typeCast",
+          "named": true
+        },
+        {
           "type": "typeDecl",
           "named": true
         }
@@ -802,10 +852,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "arrayLiteral",
-          "named": true
-        },
         {
           "type": "builtinCall1Type",
           "named": true
@@ -823,7 +869,15 @@
           "named": true
         },
         {
+          "type": "closureLiteral",
+          "named": true
+        },
+        {
           "type": "decNumber",
+          "named": true
+        },
+        {
+          "type": "enumLiteral",
           "named": true
         },
         {
@@ -835,7 +889,7 @@
           "named": true
         },
         {
-          "type": "mapLiteral",
+          "type": "literal",
           "named": true
         },
         {
@@ -848,6 +902,10 @@
         },
         {
           "type": "stringLiteral",
+          "named": true
+        },
+        {
+          "type": "typeCast",
           "named": true
         }
       ]
@@ -862,7 +920,7 @@
         "required": false,
         "types": [
           {
-            "type": "shortVarDecl",
+            "type": "declAssignmentStmt",
             "named": true
           }
         ]
@@ -871,10 +929,6 @@
         "multiple": false,
         "required": true,
         "types": [
-          {
-            "type": "arrayLiteral",
-            "named": true
-          },
           {
             "type": "builtinCall1Type",
             "named": true
@@ -892,7 +946,15 @@
             "named": true
           },
           {
+            "type": "closureLiteral",
+            "named": true
+          },
+          {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "enumLiteral",
             "named": true
           },
           {
@@ -904,7 +966,7 @@
             "named": true
           },
           {
-            "type": "mapLiteral",
+            "type": "literal",
             "named": true
           },
           {
@@ -917,6 +979,10 @@
           },
           {
             "type": "stringLiteral",
+            "named": true
+          },
+          {
+            "type": "typeCast",
             "named": true
           }
         ]
@@ -988,10 +1054,6 @@
         "required": true,
         "types": [
           {
-            "type": "arrayLiteral",
-            "named": true
-          },
-          {
             "type": "builtinCall1Type",
             "named": true
           },
@@ -1008,7 +1070,15 @@
             "named": true
           },
           {
+            "type": "closureLiteral",
+            "named": true
+          },
+          {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "enumLiteral",
             "named": true
           },
           {
@@ -1020,7 +1090,7 @@
             "named": true
           },
           {
-            "type": "mapLiteral",
+            "type": "literal",
             "named": true
           },
           {
@@ -1034,6 +1104,10 @@
           {
             "type": "stringLiteral",
             "named": true
+          },
+          {
+            "type": "typeCast",
+            "named": true
           }
         ]
       },
@@ -1046,11 +1120,11 @@
             "named": false
           },
           {
-            "type": "incDecStmt",
+            "type": "declAssignmentStmt",
             "named": true
           },
           {
-            "type": "shortVarDecl",
+            "type": "incDecStmt",
             "named": true
           }
         ]
@@ -1066,10 +1140,6 @@
           {
             "type": "incDecStmt",
             "named": true
-          },
-          {
-            "type": "shortVarDecl",
-            "named": true
           }
         ]
       }
@@ -1083,10 +1153,6 @@
         "multiple": false,
         "required": true,
         "types": [
-          {
-            "type": "arrayLiteral",
-            "named": true
-          },
           {
             "type": "builtinCall1Type",
             "named": true
@@ -1104,7 +1170,15 @@
             "named": true
           },
           {
+            "type": "closureLiteral",
+            "named": true
+          },
+          {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "enumLiteral",
             "named": true
           },
           {
@@ -1116,7 +1190,7 @@
             "named": true
           },
           {
-            "type": "mapLiteral",
+            "type": "literal",
             "named": true
           },
           {
@@ -1129,6 +1203,10 @@
           },
           {
             "type": "stringLiteral",
+            "named": true
+          },
+          {
+            "type": "typeCast",
             "named": true
           }
         ]
@@ -1225,10 +1303,6 @@
             "named": false
           },
           {
-            "type": "arrayLiteral",
-            "named": true
-          },
-          {
             "type": "builtinCall1Type",
             "named": true
           },
@@ -1245,7 +1319,15 @@
             "named": true
           },
           {
+            "type": "closureLiteral",
+            "named": true
+          },
+          {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "enumLiteral",
             "named": true
           },
           {
@@ -1257,7 +1339,7 @@
             "named": true
           },
           {
-            "type": "mapLiteral",
+            "type": "literal",
             "named": true
           },
           {
@@ -1270,6 +1352,10 @@
           },
           {
             "type": "stringLiteral",
+            "named": true
+          },
+          {
+            "type": "typeCast",
             "named": true
           }
         ]
@@ -1339,10 +1425,6 @@
         "required": true,
         "types": [
           {
-            "type": "arrayLiteral",
-            "named": true
-          },
-          {
             "type": "builtinCall1Type",
             "named": true
           },
@@ -1359,7 +1441,15 @@
             "named": true
           },
           {
+            "type": "closureLiteral",
+            "named": true
+          },
+          {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "enumLiteral",
             "named": true
           },
           {
@@ -1371,7 +1461,7 @@
             "named": true
           },
           {
-            "type": "mapLiteral",
+            "type": "literal",
             "named": true
           },
           {
@@ -1384,6 +1474,10 @@
           },
           {
             "type": "stringLiteral",
+            "named": true
+          },
+          {
+            "type": "typeCast",
             "named": true
           }
         ]
@@ -1403,7 +1497,7 @@
         "required": false,
         "types": [
           {
-            "type": "shortVarDecl",
+            "type": "declAssignmentStmt",
             "named": true
           }
         ]
@@ -1522,17 +1616,13 @@
     }
   },
   {
-    "type": "mapLiteral",
+    "type": "literal",
     "named": true,
     "fields": {},
     "children": {
       "multiple": true,
       "required": false,
       "types": [
-        {
-          "type": "arrayLiteral",
-          "named": true
-        },
         {
           "type": "builtinCall1Type",
           "named": true
@@ -1550,7 +1640,15 @@
           "named": true
         },
         {
+          "type": "closureLiteral",
+          "named": true
+        },
+        {
           "type": "decNumber",
+          "named": true
+        },
+        {
+          "type": "enumLiteral",
           "named": true
         },
         {
@@ -1562,7 +1660,11 @@
           "named": true
         },
         {
-          "type": "mapLiteral",
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "literal",
           "named": true
         },
         {
@@ -1575,6 +1677,14 @@
         },
         {
           "type": "stringLiteral",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        },
+        {
+          "type": "typeCast",
           "named": true
         }
       ]
@@ -1676,10 +1786,6 @@
         "required": false,
         "types": [
           {
-            "type": "arrayLiteral",
-            "named": true
-          },
-          {
             "type": "builtinCall1Type",
             "named": true
           },
@@ -1696,7 +1802,15 @@
             "named": true
           },
           {
+            "type": "closureLiteral",
+            "named": true
+          },
+          {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "enumLiteral",
             "named": true
           },
           {
@@ -1708,7 +1822,7 @@
             "named": true
           },
           {
-            "type": "mapLiteral",
+            "type": "literal",
             "named": true
           },
           {
@@ -1721,6 +1835,10 @@
           },
           {
             "type": "stringLiteral",
+            "named": true
+          },
+          {
+            "type": "typeCast",
             "named": true
           }
         ]
@@ -1853,55 +1971,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
-      "required": false,
+      "multiple": false,
+      "required": true,
       "types": [
         {
-          "type": "arrayLiteral",
-          "named": true
-        },
-        {
-          "type": "builtinCall1Type",
-          "named": true
-        },
-        {
-          "type": "builtinCallBasic",
-          "named": true
-        },
-        {
-          "type": "builtinCallFmt",
-          "named": true
-        },
-        {
-          "type": "builtinCallMake",
-          "named": true
-        },
-        {
-          "type": "decNumber",
-          "named": true
-        },
-        {
-          "type": "functionCall",
-          "named": true
-        },
-        {
-          "type": "hexNumber",
-          "named": true
-        },
-        {
-          "type": "mapLiteral",
-          "named": true
-        },
-        {
-          "type": "qualIdent",
-          "named": true
-        },
-        {
-          "type": "realNumber",
-          "named": true
-        },
-        {
-          "type": "stringLiteral",
+          "type": "exprList",
           "named": true
         }
       ]
@@ -1925,27 +1999,16 @@
   {
     "type": "shortVarDecl",
     "named": true,
-    "fields": {
-      "identifiers": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "identList",
-            "named": true
-          }
-        ]
-      },
-      "values": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "exprList",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "declAssignmentStmt",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -2080,10 +2143,6 @@
         "required": false,
         "types": [
           {
-            "type": "arrayLiteral",
-            "named": true
-          },
-          {
             "type": "builtinCall1Type",
             "named": true
           },
@@ -2100,7 +2159,15 @@
             "named": true
           },
           {
+            "type": "closureLiteral",
+            "named": true
+          },
+          {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "enumLiteral",
             "named": true
           },
           {
@@ -2112,7 +2179,7 @@
             "named": true
           },
           {
-            "type": "mapLiteral",
+            "type": "literal",
             "named": true
           },
           {
@@ -2126,6 +2193,10 @@
           {
             "type": "stringLiteral",
             "named": true
+          },
+          {
+            "type": "typeCast",
+            "named": true
           }
         ]
       }
@@ -2134,10 +2205,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "arrayLiteral",
-          "named": true
-        },
         {
           "type": "builtinCall1Type",
           "named": true
@@ -2155,7 +2222,15 @@
           "named": true
         },
         {
+          "type": "closureLiteral",
+          "named": true
+        },
+        {
           "type": "decNumber",
+          "named": true
+        },
+        {
+          "type": "enumLiteral",
           "named": true
         },
         {
@@ -2171,7 +2246,7 @@
           "named": true
         },
         {
-          "type": "mapLiteral",
+          "type": "literal",
           "named": true
         },
         {
@@ -2188,6 +2263,10 @@
         },
         {
           "type": "typeCase",
+          "named": true
+        },
+        {
+          "type": "typeCast",
           "named": true
         },
         {
@@ -2312,6 +2391,77 @@
     }
   },
   {
+    "type": "typeCast",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "builtinCall1Type",
+          "named": true
+        },
+        {
+          "type": "builtinCallBasic",
+          "named": true
+        },
+        {
+          "type": "builtinCallFmt",
+          "named": true
+        },
+        {
+          "type": "builtinCallMake",
+          "named": true
+        },
+        {
+          "type": "closureLiteral",
+          "named": true
+        },
+        {
+          "type": "decNumber",
+          "named": true
+        },
+        {
+          "type": "enumLiteral",
+          "named": true
+        },
+        {
+          "type": "functionCall",
+          "named": true
+        },
+        {
+          "type": "hexNumber",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "qualIdent",
+          "named": true
+        },
+        {
+          "type": "realNumber",
+          "named": true
+        },
+        {
+          "type": "stringLiteral",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        },
+        {
+          "type": "typeCast",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "typeDecl",
     "named": true,
     "fields": {},
@@ -2365,10 +2515,6 @@
       "required": true,
       "types": [
         {
-          "type": "arrayLiteral",
-          "named": true
-        },
-        {
           "type": "builtinCall1Type",
           "named": true
         },
@@ -2385,7 +2531,15 @@
           "named": true
         },
         {
+          "type": "closureLiteral",
+          "named": true
+        },
+        {
           "type": "decNumber",
+          "named": true
+        },
+        {
+          "type": "enumLiteral",
           "named": true
         },
         {
@@ -2397,7 +2551,7 @@
           "named": true
         },
         {
-          "type": "mapLiteral",
+          "type": "literal",
           "named": true
         },
         {
@@ -2410,6 +2564,10 @@
         },
         {
           "type": "stringLiteral",
+          "named": true
+        },
+        {
+          "type": "typeCast",
           "named": true
         }
       ]
@@ -2453,10 +2611,6 @@
         "required": false,
         "types": [
           {
-            "type": "arrayLiteral",
-            "named": true
-          },
-          {
             "type": "builtinCall1Type",
             "named": true
           },
@@ -2473,7 +2627,15 @@
             "named": true
           },
           {
+            "type": "closureLiteral",
+            "named": true
+          },
+          {
             "type": "decNumber",
+            "named": true
+          },
+          {
+            "type": "enumLiteral",
             "named": true
           },
           {
@@ -2485,7 +2647,7 @@
             "named": true
           },
           {
-            "type": "mapLiteral",
+            "type": "literal",
             "named": true
           },
           {
@@ -2498,6 +2660,10 @@
           },
           {
             "type": "stringLiteral",
+            "named": true
+          },
+          {
+            "type": "typeCast",
             "named": true
           }
         ]
@@ -2534,6 +2700,10 @@
   },
   {
     "type": "--",
+    "named": false
+  },
+  {
+    "type": ".",
     "named": false
   },
   {
@@ -2749,6 +2919,10 @@
     "named": false
   },
   {
+    "type": "return",
+    "named": false
+  },
+  {
     "type": "round",
     "named": false
   },
@@ -2830,6 +3004,10 @@
   },
   {
     "type": "{",
+    "named": false
+  },
+  {
+    "type": "|",
     "named": false
   },
   {
